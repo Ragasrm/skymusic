@@ -1,0 +1,11 @@
+.header-toolbar {
+    display: flex;
+    justify-content: center;
+    background-color: #2F2F2F;
+}
+
+.header-title {
+    color: #50C0FF;
+    font-weight: bold;
+}
+
