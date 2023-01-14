@@ -1,5 +1,5 @@
 import { AppBar, Box, CssBaseline, Toolbar, Typography } from '@mui/material'
-import './header.css'
+import './Header.css'
 
 type Props = {}
 
