@@ -7,13 +7,21 @@ import './Content.css'
 type Props = {}
 
 function Content(props: Props) {
-  const dispatch = useDispatch()
+
+  let categories:string[]=[];
+  const dispatch = useDispatch();
+
   useEffect(()=>{
+
     fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')
     .then(response => response.json())
     .then((res) => {
       let albumData = res.feed.entry.map((data:any)=>{
-        console.log("data['im:artist']", data['im:artist'])
+        if(!categories.includes(data.category.attributes.label)) {
+          categories.push(data.category.attributes.label)
+        }
+        
+       
         return {
           category:data.category.attributes.label,
           id:data.id.attributes['im:id'],
@@ -28,8 +36,8 @@ function Content(props: Props) {
           isFavorite:false
         }
       })
-      console.log("albumData", albumData)
     dispatch({type: ActionType.SET_ALBUMS, payload: albumData})
+    dispatch({type: ActionType.SET_CATEGORIES, payload: categories})
 
       
 
@@ -37,7 +45,7 @@ function Content(props: Props) {
     .catch(error => {
        console.log(error)
     });
-  }, [dispatch])
+  }, [])
   return (
     <div className="main">
         <Albums/>
