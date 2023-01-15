@@ -3,13 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Provider } from "react-redux";
+import { createStore, Store } from 'redux';
+import { albumReducer } from './redux/reducers/albumReducer';
+import { Action, State } from './types/reducers';
+
+
+ const store: Store<State, Action> = createStore(albumReducer)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      {/* <ThemeProvider theme={theme}> */}
+        <App />
+      {/* </ThemeProvider> */}
+    </Provider>
   </React.StrictMode>
 );
 
