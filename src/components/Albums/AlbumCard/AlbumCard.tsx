@@ -21,10 +21,10 @@ export default function AlbumCard(props: Props) {
             </div>
             <div className='album-detail-section'>
                 <div className='album-aritist'>
-                    <p className='album-name'>{name} <Favorite className='fav-icon'
+                    <p className='album-name'><span title={name} style={{width:200, overflow:'hidden', whiteSpace:'nowrap',  textOverflow:'ellipsis'}}>{name}</span> <Favorite className='fav-icon'
                      //onClick={()=>setisFavorite(!isFavorite)}
                      /></p>
-                    <p className='album-artist'>{artist.name}</p>
+                    <p title={artist.name} className='album-artist'>{artist.name}</p>
                 </div>
                 <div className='album-year-price'>
                     <p className='album-release'>{year}</p>
