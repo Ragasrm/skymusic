@@ -1,4 +1,8 @@
-export type State = AlbumReducerState & FavoritesReducerState & CategoryReducerState
+export type State = {
+    albums: Album[],
+    favorites: Album[],
+    categories: string[],
+};
 
 export type Album = {
     category:string,
@@ -16,18 +20,6 @@ type Artist = {
     name:string,
     url:string,
 };
-export type AlbumReducerState = {
-    albums:Album[]
-};
-
-export type FavoritesReducerState = {
-    favorites:Album[]
-};
-
-export type CategoryReducerState = {
-    categories:string[] 
-};
-
 
 export enum ActionType {
     SET_ALBUMS='SET_ALBUMS',
