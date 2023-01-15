@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Provider } from "react-redux";
 import { createStore, Store } from 'redux';
-import { albumReducer } from './redux/reducers/albumReducer';
+// import { albumReducer } from './redux/reducers/albumReducer';
 import { Action, State } from './types/reducers';
+import rootReducer from './redux/reducers';
 
 
- const store: Store<State, Action> = createStore(albumReducer)
+ const store: Store<State, Action> = createStore(rootReducer)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
