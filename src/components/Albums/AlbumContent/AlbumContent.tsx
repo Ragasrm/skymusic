@@ -3,19 +3,18 @@ import AlbumCard from '../AlbumCard/AlbumCard'
 import './AlbumContent.css'
 
 type Props = {
-  albums:Album[]
+  albums:Album[],
+  viewAll:boolean
 }
 
 function AlbumContent(props: Props) {
-  const { albums }  = props
+  const { albums, viewAll }  = props
   
   return (
     <div className='album-content'>
-
-
           <div className='album-card-container'>
-              {albums.slice(0,4).map((album, index) => (
-                  <AlbumCard album={album} />
+              {albums.slice(0,viewAll ? albums.length : 4).map((album) => (
+                  <AlbumCard album={album} key={album.id} />
               ))}
           </div>
     </div>  
