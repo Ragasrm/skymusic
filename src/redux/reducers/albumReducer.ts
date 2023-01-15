@@ -1,20 +1,17 @@
-import { Action, ActionType, AlbumReducerState } from "../../types/reducers";
+import { Action, ActionType, Album } from "../../types/reducers";
 
-const initialState: AlbumReducerState = {
-    albums: []
-}
+const initialState: Album[] = [];
 
-export const albumReducer=(state:AlbumReducerState = initialState, action:Action): AlbumReducerState => {
+export const albumReducer=(state:Album[] = initialState, action:Action) => {
     switch (action.type) {
         case ActionType.SET_ALBUMS:
-            return {
-                ...state,
-                albums:action.payload
-            };
-            
+            return [
+                ...action.payload,
+            ];
+
     
         default:
-            return {...state}
+            return [...state]
         
     }
 }
