@@ -1,15 +1,92 @@
 .album-card {
+    padding: 20px;
     max-width: 400px;
     min-width: 300px;
-    height: 350px;
+    height: 400px;
     background-color: #404040;
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
     transition: 0.3s;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
 }
 
 .album-card:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
+}
+
+.album-img-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 230px;
+    position: relative;
+   
+}
+
+.album-detail-section {
+    margin-top: 5px;
+     /* background-color: bisque; */
+     height: 130px;
+}
+
+.album-aritist {
+    height: 70px;
+    /* background-color: aqua; */
+}
+
+.album-year-price {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    /* background-color: aqua; */
+}
+
+.album-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.fav-icon {
+    color: #2BD081;
+    
+}
+
+.fav-icon:hover {
+    transform: scale(1.2);
+
+}
+
+.album-artist {
+    color: #AFAFAF;
+}
+
+.album-release {
+    color: #fff;
+}
+
+.album-price {
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 40px;
+    padding: 0 10px;
+    background-color: #2BD081;
+    display: flex;
+    align-items: center;
+}
+
+.album-category-name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffd36385;
+    padding: 0 20px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
   

@@ -2,7 +2,7 @@ import { Autocomplete, TextField } from '@mui/material'
 import './AlbumHeader.css'
 type Props = {}
 
-export default function AlbumHeader({}: Props) {
+export default function AlbumHeader(props: Props) {
     const top100Films = [
         { title: 'The Shawshank Redemption', year: 1994 },
         { title: 'The Godfather', year: 1972 },

@@ -3,7 +3,7 @@ import AlbumHeader from './AlbumHeader/AlbumHeader'
 import './albums.css'
 type Props = {}
 
-export default function Section({}: Props) {
+export default function Section(props: Props) {
   return (
     <div className="section">
       <AlbumHeader/>

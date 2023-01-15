@@ -3,7 +3,7 @@ import './Header.css'
 
 type Props = {}
 
-function Header({}: Props) {
+function Header(props: Props) {
   return (
     <Box sx={{ display: 'flex' }}>
     <CssBaseline />

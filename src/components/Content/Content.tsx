@@ -3,7 +3,7 @@ import './Content.css'
 
 type Props = {}
 
-function Content({}: Props) {
+function Content(props: Props) {
   return (
     <div className="main">
         <Albums/>
