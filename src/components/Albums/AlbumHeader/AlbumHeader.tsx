@@ -15,6 +15,16 @@ export default function AlbumHeader(props: Props) {
 
   const mappedCategories = categories?.map(category=>({ title:category})) ||  [];
 
+  const handleFilter = (value:any) => {
+    console.log("value", value)
+    let FilterArray=[];
+
+    value.map((data:any)=>{
+        FilterArray.push(data.title)
+    })
+
+  };
+
     
   return (
     <div className='album-header'>
@@ -31,6 +41,7 @@ export default function AlbumHeader(props: Props) {
         options={mappedCategories}
         getOptionLabel={(option) => option.title}
         // defaultValue={[top100Films[13]]}
+        onChange={(event, value) => handleFilter(value)}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
