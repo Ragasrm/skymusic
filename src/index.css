@@ -23,7 +23,7 @@ code {
   color: #fff !important;
 }
 
-.MuiSvgIcon-root {
+.MuiOutlinedInput .MuiSvgIcon-root {
   fill: #fff !important;
 }
 
