@@ -18,6 +18,27 @@ code {
     monospace;
 }
 
+.MuiInputLabel-root,
+.MuiInputBase-root {
+  color: #fff !important;
+}
+
+.MuiSvgIcon-root {
+  fill: #fff !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+}
+
+.MuiChip-filled {
+  background-color: #fff !important;
+}
+
+.MuiChip-filled .MuiSvgIcon-root {
+  fill: #4e4e4e !important;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 /* @media only screen and (max-width: 600px) {
