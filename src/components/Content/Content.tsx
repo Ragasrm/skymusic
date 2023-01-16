@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { ActionType } from "../../types/reducers";
-import Albums from "../Albums/Albums";
 import {Switch, Route } from "react-router-dom";
 import './Content.css'
+import TopAlbums from "../Albums/TopAlbums";
+import Favorites from "../Albums/Favorites";
 
 type Props = {}
 
@@ -48,11 +49,11 @@ function Content(props: Props) {
   return (
     <div className="main">
       <Switch>
-        <Route exact path="/" component={Albums} />
+        <Route exact path="/" component={TopAlbums} />
         <Route path="/about"
-        render={()=><h2>welcome</h2>}
-        //  component={<h2>welcome</h2>
-          />
+        component={Favorites}
+        // render={()=> <h2>Ragav</h2>}
+        />
         
       </Switch>
       {/* <Albums /> */}

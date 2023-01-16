@@ -1,17 +1,17 @@
 import { CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { Album, State } from '../../types/reducers';
+import { Album } from '../../types/reducers';
 import AlbumContent from './AlbumContent/AlbumContent';
 import AlbumHeader from './AlbumHeader/AlbumHeader';
 import './albums.css'
 type Props = {
   albums: Album[],
-  categories: string[]
+  categories: string[];
+  title:string
 };
-function Albums(props: Props) {
+export default function Albums(props: Props) {
 
-  const { albums, categories } = props
+  const { albums, categories, title } = props
   const [viewAll, setViewAll] = useState(false);
   const [albumData, setAlbumData] = useState<Album[]>([])
 
@@ -45,7 +45,7 @@ function Albums(props: Props) {
   
   return (
     <div className="section">
-      <AlbumHeader categories={categories || []} toggleViewAll={toggleViewAll} viewAll={viewAll} onFilter={onFilter} />
+      <AlbumHeader categories={categories || []} toggleViewAll={toggleViewAll} viewAll={viewAll} onFilter={onFilter} title={title}  />
       
       {
         loading 
@@ -62,13 +62,6 @@ function Albums(props: Props) {
   )
 };
 
-const mapStateToProps = (state: State) => {
 
-  return {
-    ...state,
-    albums: state.albums,
-    categories: state.categories,
-  }
-}
 
-export default connect(mapStateToProps, null)(Albums)
+ 

@@ -1,5 +1,5 @@
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import './DrawerComponent.css'
 
 type Props = {

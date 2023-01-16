@@ -12,9 +12,11 @@ export type Album = {
     name:string,
     price:string,
     year:number,
-    isFavorite:boolean
+    isFavorite?:boolean
 
 };
+
+export type FavoriteAlbum = Omit<Album, 'isFavorite'>
 
 type Artist = {
     name:string,

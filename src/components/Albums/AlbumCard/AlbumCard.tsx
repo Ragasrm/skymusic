@@ -1,18 +1,35 @@
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import { useState } from 'react';
-import { Album } from '../../../types/reducers';
+import { useDispatch } from 'react-redux';
+import { ActionType, Album } from '../../../types/reducers';
 import './AlbumCard.css'
 type Props = {
     album:Album
 }
 
 export default function AlbumCard(props: Props) {
+
+    const dispatch = useDispatch()
     const {album} = props
     const {img,category, isFavorite, name, price, year, artist } = album
-    const [favorite, setisFavorite] = useState(false)
+    // const [favorite, setisFavorite] = useState(false)
 
-    let Favorite = favorite ? StarIcon : StarBorderOutlinedIcon
+    let Favorite = isFavorite ? StarIcon : StarBorderOutlinedIcon
+
+
+    const handleSetFavorite = () => {
+        album.isFavorite = !isFavorite
+
+        dispatch({ type: ActionType.UPDATE_ALBUM, payload: album });
+        // delete album.isFavorite
+        if(album.isFavorite) {
+            dispatch({ type: ActionType.ADD_TO_FAVORITES, payload: album})
+        } else {
+            dispatch({ type: ActionType.REMOVE_FROM_FAVORITES, payload: album})
+
+        }
+
+    }
 
     
     return (
@@ -23,7 +40,7 @@ export default function AlbumCard(props: Props) {
             <div className='album-detail-section'>
                 <div className='album-aritist'>
                     <p className='album-name'><span title={name} style={{width:200, overflow:'hidden', whiteSpace:'nowrap',  textOverflow:'ellipsis'}}>{name}</span> <Favorite className='fav-icon'
-                     onClick={()=>setisFavorite(!favorite)}
+                     onClick={()=>handleSetFavorite()}
                      /></p>
                     <p title={artist.name} className='album-artist'>{artist.name}</p>
                 </div>

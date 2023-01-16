@@ -8,6 +8,16 @@ export const albumReducer=(state:Album[] = initialState, action:Action) => {
             return [
                 ...action.payload,
             ];
+        case ActionType.UPDATE_ALBUM:
+            const UPDATED_ALBUM = state.map(album=> {
+                if(album.id === action.payload.id) {
+                  return  action.payload
+                } else {
+                    return album
+                }
+            })
+            return UPDATED_ALBUM
+
 
     
         default:

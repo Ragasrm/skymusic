@@ -4,7 +4,7 @@ import './AlbumContent.css'
 
 type Props = {
   albums:Album[],
-  viewAll:boolean
+  viewAll:boolean,
 }
 
 function AlbumContent(props: Props) {
