@@ -32,6 +32,7 @@
 
 .album-aritist {
     height: 70px;
+    cursor: pointer;
     /* background-color: aqua; */
 }
 

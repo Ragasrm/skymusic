@@ -11,8 +11,7 @@ export default function AlbumCard(props: Props) {
 
     const dispatch = useDispatch()
     const {album} = props
-    const {img,category, isFavorite, name, price, year, artist } = album
-    // const [favorite, setisFavorite] = useState(false)
+    const {img,category, isFavorite, name, price, year, artist, albumUrl } = album
 
     let Favorite = isFavorite ? StarIcon : StarBorderOutlinedIcon
 
@@ -34,15 +33,17 @@ export default function AlbumCard(props: Props) {
     
     return (
         <div className='album-card'>
-            <div className='album-img-section' onClick={()=> artist?.url && window.open(artist.url,'_blank')} style={{backgroundImage:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' }}>
+            <div className='album-img-section' onClick={()=> albumUrl && window.open(albumUrl,'_blank')} style={{backgroundImage:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' }}>
             <div className='album-category-name'>{category}</div>
             </div>
             <div className='album-detail-section'>
                 <div className='album-aritist'>
-                    <p className='album-name'><span title={name} style={{width:200, overflow:'hidden', whiteSpace:'nowrap',  textOverflow:'ellipsis'}}>{name}</span> <Favorite className='fav-icon'
+                    <p className='album-name'><span title={name} style={{width:200, overflow:'hidden', whiteSpace:'nowrap',  textOverflow:'ellipsis'}}>{name}</span> 
+                    <Favorite className='fav-icon'
                      onClick={()=>handleSetFavorite()}
-                     /></p>
-                    <p title={artist.name} className='album-artist'>{artist.name}</p>
+                     />
+                     </p>
+                    <p onClick={()=> artist?.url && window.open(artist.url,'_blank')} title={artist.name} className='album-artist'>{artist.name}</p>
                 </div>
                 <div className='album-year-price'>
                     <p className='album-release'>{year}</p>

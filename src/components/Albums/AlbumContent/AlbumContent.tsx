@@ -17,6 +17,7 @@ function AlbumContent(props: Props) {
           <div className='album-card-container'>
               {albums.slice(0,viewAll ? albums.length : 8).map((album, index) => (
                 <motion.div 
+                key={album.id}
                 initial={{
                   translateY:100*(index+1),
                   opacity:0

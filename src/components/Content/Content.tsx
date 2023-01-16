@@ -28,6 +28,7 @@ function Content(props: Props) {
           if (!categories.includes(data.category.attributes.label)) {
             categories.push(data.category.attributes.label)
           }
+
           return {
             category: data.category.attributes.label,
             id: data.id.attributes['im:id'],
@@ -35,6 +36,7 @@ function Content(props: Props) {
               name: data['im:artist'].label,
               url: data['im:artist'].attributes?.href
             },
+            albumUrl:data['link'].attributes?.href,
             img: data['im:image'][2].label,
             name: data['im:name'].label,
             price: data['im:price'].label,
@@ -42,6 +44,7 @@ function Content(props: Props) {
             isFavorite: false
           }
         })
+
         dispatch({ type: ActionType.SET_ALBUMS, payload: albumData })
         dispatch({ type: ActionType.SET_CATEGORIES, payload: categories })
 

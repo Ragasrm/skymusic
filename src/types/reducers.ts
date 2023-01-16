@@ -12,7 +12,9 @@ export type Album = {
     name:string,
     price:string,
     year:number,
-    isFavorite?:boolean
+    isFavorite?:boolean,
+    albumUrl:string
+
 
 };
 

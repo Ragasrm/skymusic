@@ -13,7 +13,6 @@ type Props = PropsWithChildren & {
 export default function Albums(props: Props) {
 
   const { albums, categories, title, children, isLoading } = props;
-  console.log("isLoading", isLoading)
 
   const [viewAll, setViewAll] = useState(false);
   const [albumData, setAlbumData] = useState<Album[]>([])
