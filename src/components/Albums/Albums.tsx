@@ -30,24 +30,17 @@ function Albums(props: Props) {
     setViewAll(!viewAll)
   }
 
- 
-
-  // filter handler
-  //set data in albumData
 
   const onFilter = (categories:string[]) => {
-    // console.clear();
     setLoading(true)
-
-
     let filteredAlbums = albums.filter((album)=>categories.includes(album.category))
-
-    if(filteredAlbums) {
+    if(filteredAlbums.length > 0) {
       setAlbumData(filteredAlbums);
       setLoading(false)
+    } else {
+      setAlbumData(albums);
+      setLoading(false)
     }
-   
-
   }
   
   return (

@@ -13,7 +13,7 @@ function AlbumContent(props: Props) {
   return (
     <div className='album-content'>
           <div className='album-card-container'>
-              {albums.slice(0,viewAll ? albums.length : 4).map((album) => (
+              {albums.slice(0,viewAll ? albums.length : 8).map((album) => (
                   <AlbumCard album={album} key={album.id} />
               ))}
           </div>
