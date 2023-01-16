@@ -7,7 +7,6 @@
     transition: 0.3s;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.06);
-    cursor: pointer;
 }
 
 .album-card:hover {
@@ -21,6 +20,7 @@
     border-radius: 10px;
     height: 230px;
     position: relative;
+    cursor: pointer;
    
 }
 

@@ -34,7 +34,7 @@ export default function AlbumCard(props: Props) {
     
     return (
         <div className='album-card'>
-            <div className='album-img-section' style={{backgroundImage:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' }}>
+            <div className='album-img-section' onClick={()=> artist?.url && window.open(artist.url,'_blank')} style={{backgroundImage:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' }}>
             <div className='album-category-name'>{category}</div>
             </div>
             <div className='album-detail-section'>

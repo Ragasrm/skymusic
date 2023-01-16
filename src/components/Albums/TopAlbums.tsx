@@ -1,10 +1,13 @@
+import { ReactElement } from 'react';
 import { connect } from 'react-redux'
 import { Album, State } from '../../types/reducers'
 import Albums from './Albums'
 
 type Props = {
     albums: Album[],
-  categories: string[];
+  categories: string[],
+  children:ReactElement,
+  isLoading:boolean,
 }
 
 function TopAlbums(props: Props) {

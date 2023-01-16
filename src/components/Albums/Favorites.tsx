@@ -1,10 +1,12 @@
+import { PropsWithChildren } from "react";
 import { connect } from "react-redux"
 import { Album, State } from "../../types/reducers"
 import Albums from "./Albums";
 
-type Props = {
+type Props = PropsWithChildren &{
     albums: Album[],
-  categories: string[];
+  categories: string[],
+  isLoading:boolean,
 };
 
 function Favorites(props: Props) {
