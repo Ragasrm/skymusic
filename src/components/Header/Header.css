@@ -1,6 +1,6 @@
 .header-toolbar {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: #2F2F2F;
 }
 

@@ -1,6 +1,4 @@
 import { Autocomplete, TextField } from '@mui/material'
-import { title } from 'process'
-import { useEffect } from 'react'
 import './AlbumHeader.css'
 type Props = {
   categories:string[],
@@ -16,13 +14,13 @@ export default function AlbumHeader(props: Props) {
   const mappedCategories = categories?.map(category=>({ title:category})) ||  [];
 
   const handleFilter = (value:any) => {
-    console.log("value", value)
-    let FilterArray=[];
+    let FilterArray:any=[];
+    
+    value.map((data:any)=> FilterArray.push(data.title))
 
-    value.map((data:any)=>{
-        FilterArray.push(data.title)
-    })
+    onFilter(FilterArray)
 
+    //
   };
 
     
@@ -40,14 +38,15 @@ export default function AlbumHeader(props: Props) {
         id="tags-outlined"
         options={mappedCategories}
         getOptionLabel={(option) => option.title}
+        isOptionEqualToValue={(option, value) => option.title === value.title}
         // defaultValue={[top100Films[13]]}
         onChange={(event, value) => handleFilter(value)}
         filterSelectedOptions
         renderInput={(params) => (
           <TextField
             {...params}
-            label="filterSelectedOptions"
-            placeholder="Favorites"
+            label="filter with selected option"
+            // placeholder="Favorites"
           />
         )}
       />

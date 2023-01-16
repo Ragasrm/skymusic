@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Album, State } from '../../types/reducers';
@@ -14,8 +15,15 @@ function Albums(props: Props) {
   const [viewAll, setViewAll] = useState(false);
   const [albumData, setAlbumData] = useState<Album[]>([])
 
+  const [loading, setLoading] = useState(false)
+
   useEffect(()=>{
-    setAlbumData(albums)
+    setLoading(true)
+    if(albums){
+      setAlbumData(albums)
+      setLoading(false)
+    }
+    
   },[albums]);
 
   const toggleViewAll = () => {
@@ -29,16 +37,33 @@ function Albums(props: Props) {
 
   const onFilter = (categories:string[]) => {
     // console.clear();
+    setLoading(true)
+
 
     let filteredAlbums = albums.filter((album)=>categories.includes(album.category))
-    setAlbumData(filteredAlbums)
+
+    if(filteredAlbums) {
+      setAlbumData(filteredAlbums);
+      setLoading(false)
+    }
+   
 
   }
   
   return (
     <div className="section">
       <AlbumHeader categories={categories || []} toggleViewAll={toggleViewAll} viewAll={viewAll} onFilter={onFilter} />
-      <AlbumContent albums={albumData || []} viewAll={viewAll} />
+      
+      {
+        loading 
+        ?
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center', margin:'0 30px', height:600}}>
+        <CircularProgress />
+      </div>
+        :
+       
+        <AlbumContent albums={albumData || []} viewAll={viewAll} />
+      }
 
     </div>
   )
