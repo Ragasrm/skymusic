@@ -10,7 +10,8 @@ export const favoritesReducer=(state:FavoriteAlbum[] = initialState, action:Acti
                 action.payload
             ];
         case ActionType.REMOVE_FROM_FAVORITES:
-            return state.filter(album=> album.id !== action.payload.id)
+            return state.filter(album => album.id !== action.payload.id)
+            
         default:
             return [...state]
     }

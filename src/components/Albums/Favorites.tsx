@@ -4,7 +4,7 @@ import { Album, State } from "../../types/reducers"
 import Albums from "./Albums";
 
 type Props = PropsWithChildren &{
-    albums: Album[],
+  albums: Album[],
   categories: string[],
   isLoading:boolean,
 };

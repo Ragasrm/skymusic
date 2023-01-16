@@ -20,10 +20,10 @@ export default function AlbumCard(props: Props) {
         album.isFavorite = !isFavorite
 
         dispatch({ type: ActionType.UPDATE_ALBUM, payload: album });
-        // delete album.isFavorite
         if(album.isFavorite) {
             dispatch({ type: ActionType.ADD_TO_FAVORITES, payload: album})
         } else {
+            console.log("REMOVE_FROM_FAVORITES", album)
             dispatch({ type: ActionType.REMOVE_FROM_FAVORITES, payload: album})
 
         }

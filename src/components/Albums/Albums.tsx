@@ -21,7 +21,8 @@ export default function Albums(props: Props) {
   useEffect(()=> {
     if(albums.length > 0){
       setAlbumData(albums)
-
+    } else {
+      setAlbumData([])
     };
 
     
