@@ -32,7 +32,6 @@ export default function AlbumHeader(props: Props) {
               {viewAll ? 'Show min': 'Show max'}</p>
         </div>
         <div className='filter-container'>
-          <button onClick={() => onFilter(['Rock', 'Fusion', 'Country'])}>Click</button>
         <Autocomplete
         multiple
         id="tags-outlined"
