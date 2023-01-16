@@ -2,12 +2,16 @@
 import './App.css';
 import Content from './components/Content/Content';
 import Header from './components/Header/Header';
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <div className="app">
-      <Header/>
-      <Content/>
+      <Router>
+        <Header />
+        <Content />
+      </Router>
+
     </div>
   );
 }

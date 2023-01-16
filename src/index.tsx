@@ -9,6 +9,17 @@ import { createStore, Store } from 'redux';
 // import { albumReducer } from './redux/reducers/albumReducer';
 import { Action, State } from './types/reducers';
 import rootReducer from './redux/reducers';
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+// } from "react-router-dom";
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <div>Hello world!</div>,
+//   },
+// ]);
 
 
  const store: Store<State, Action> = createStore(rootReducer)
@@ -21,7 +32,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <ThemeProvider theme={theme}> */}
+      {/* <RouterProvider router={router}> */}
         <App />
+        {/* </RouterProvider> */}
       {/* </ThemeProvider> */}
     </Provider>
   </React.StrictMode>

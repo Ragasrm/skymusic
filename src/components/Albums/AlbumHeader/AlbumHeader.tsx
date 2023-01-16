@@ -14,9 +14,8 @@ export default function AlbumHeader(props: Props) {
   const mappedCategories = categories?.map(category=>({ title:category})) ||  [];
 
   const handleFilter = (value:any) => {
-    let FilterArray:any=[];
     
-    value.map((data:any)=> FilterArray.push(data.title))
+    const FilterArray:string[] = value.map((data:any)=> FilterArray.push(data.title))
 
     onFilter(FilterArray)
 
