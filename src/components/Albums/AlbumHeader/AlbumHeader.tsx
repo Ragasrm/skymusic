@@ -44,7 +44,7 @@ export default function AlbumHeader(props: Props) {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="filter with selected option"
+            label="filter by category"
             // placeholder="Favorites"
           />
         )}

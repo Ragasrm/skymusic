@@ -21,7 +21,7 @@ code {
 
 .MuiInputLabel-root,
 .MuiInputBase-root {
-  color: #fff !important;
+  color: #AFAFAF !important;
 }
 
 .MuiOutlinedInput .MuiSvgIcon-root {
@@ -29,7 +29,7 @@ code {
 }
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: #fff !important;
+  border-color: #AFAFAF !important;
 }
 
 .MuiChip-filled {
