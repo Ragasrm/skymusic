@@ -3,13 +3,11 @@ import { albumReducer } from "./albumReducer";
 import { categoryReducer } from "./categoryReducer";
 import { favoritesReducer } from "./favoritesReducer";
 
-
-
 const rootReducer = combineReducers(
     {
         albums: albumReducer,
         categories: categoryReducer,
-        favorites: favoritesReducer
+        favorites: favoritesReducer,
     }
 )
 

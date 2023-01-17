@@ -1,45 +1,43 @@
+
 .header-toolbar {
     display: flex;
     /* justify-content: center; */
-    background-color: #2F2F2F;
+    background-color: var(--bg-color); 
     justify-content: space-between;
 }
 
 .header-title {
-    color: #50C0FF;
+    color: var(--lightblue);
     font-weight: bold;
 }
 
 .link {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     font-size: 20px;
     margin-left: 20px;
  }
 
  .link:hover {
-    color: #50C0FF;
+    color: var(--lightblue);
  }
 
  .active{
-    color: #50C0FF;
-    background-color: #404040;
+    color: var(--lightblue);
+    background-color: var(--active);
     padding: 0 10px;
     border-radius: 5px;
  }
-
-
 
 /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 425px) {
     .header-toolbar {
         display: flex;
-        /* justify-content: center; */
-        background-color: #2F2F2F;
+        background-color: var(--bg-color); 
         justify-content: center;
     }
 
-    .hambergar {
+    .hamburger {
          position: absolute !important;
          left: 25px
     }

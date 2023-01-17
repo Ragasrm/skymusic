@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react";
 import { connect } from "react-redux"
-import { Album, State } from "../../types/reducers"
+import { Album, State } from "../../types/reducers";
 import Albums from "./Albums";
 
-type Props = PropsWithChildren &{
+type Props = PropsWithChildren & {
   albums: Album[],
   categories: string[],
   isLoading:boolean,
@@ -11,12 +11,9 @@ type Props = PropsWithChildren &{
 
 function Favorites(props: Props) {
 
-  
-
   return (
     <Albums title='Your Favorites' {...props}/>
-
-  )
+  );
 };
 
 
@@ -26,8 +23,7 @@ const mapStateToProps = (state: State) => {
       ...state,
       albums: state.favorites,
       categories: state.categories,
-    }
-  }
+    };
+  };
 
-
-export default connect(mapStateToProps, null)(Favorites)
+export default connect(mapStateToProps, null)(Favorites);

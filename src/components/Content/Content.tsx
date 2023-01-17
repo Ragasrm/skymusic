@@ -1,79 +1,87 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { ActionType } from "../../types/reducers";
-import {Switch, Route } from "react-router-dom";
-import './Content.css'
+import { Switch, Route } from "react-router-dom";
 import TopAlbums from "../Albums/TopAlbums";
 import Favorites from "../Albums/Favorites";
 import NoDataFound from "../Albums/NoDataFound";
+import { ActionType } from "../../types/reducers";
+import './Content.css';
 
-type Props = {}
+type ContentProps = {};
 
-function Content(props: Props) {
-
+function Content(props: ContentProps) {
+  const URL = 'https://itunes.apple.com/us/rss/topalbums/limit=100/json';
   let categories: string[] = [];
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-
-    // setTimeout(()=>{
-
-      fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')
+    /******************************************************
+     * TODO: API call should be in service file in seperate
+     * * This Task has only API call So made it here.
+     * ****************************************************/
+    fetch(URL)
       .then(response => response.json())
       .then((res) => {
         setIsLoading(false)
-
         let albumData = res.feed.entry.map((data: any) => {
           if (!categories.includes(data.category.attributes.label)) {
             categories.push(data.category.attributes.label)
-          }
+          };
+
+          /****************************************************
+           * * Preparing data from API response to application
+          *****************************************************/
+          const category = data?.category?.attributes?.label || "";
+          const id = data?.id?.attributes['im:id'] || "";
+          const artist = {
+            name: data['im:artist']?.label || "",
+            url: data['im:artist'].attributes?.href || "",
+          };
+          const albumUrl = data['link']?.attributes?.href || "";
+          const img = data['im:image'][2]?.label || "";
+          const name = data['im:name']?.label || "";
+          const price = data['im:price']?.label || "";
+          const year = data['im:releaseDate']?.label ? new Date(data['im:releaseDate'].label).getFullYear() : ""
 
           return {
-            category: data.category.attributes.label,
-            id: data.id.attributes['im:id'],
-            artist: {
-              name: data['im:artist'].label,
-              url: data['im:artist'].attributes?.href
-            },
-            albumUrl:data['link'].attributes?.href,
-            img: data['im:image'][2].label,
-            name: data['im:name'].label,
-            price: data['im:price'].label,
-            year: new Date(data['im:releaseDate'].label).getFullYear(),
+            category,
+            id,
+            artist,
+            albumUrl,
+            img,
+            name,
+            price,
+            year,
             isFavorite: false
-          }
-        })
-
-        dispatch({ type: ActionType.SET_ALBUMS, payload: albumData })
-        dispatch({ type: ActionType.SET_CATEGORIES, payload: categories })
-
-
-
+          };
+        });
+        /******************************************************************
+         * * SET_ALBUMS & SET_CATEGORIES & etc are actions should be handled 
+         * * in seperate action file, I made it in simple way for this task. 
+         * *****************************************************************/
+        dispatch({ type: ActionType.SET_ALBUMS, payload: albumData });
+        dispatch({ type: ActionType.SET_CATEGORIES, payload: categories });
       })
       .catch(error => {
+        // error should be handle to notify user
         console.log(error)
       });
 
-    // },5000)  
+  }, [dispatch]);
 
-   
-  }, [dispatch])
   return (
     <div className="main">
       <Switch>
-
-
-      
-        <Route exact path="/" 
-        render={()=>(<TopAlbums isLoading={isLoading}><NoDataFound/></TopAlbums>)} />
-        <Route path="/favorites"
-        render={()=>(<Favorites isLoading={isLoading}><NoDataFound/></Favorites>)}
-        
+        <Route
+          exact
+          path="/"
+          render={() => (<TopAlbums isLoading={isLoading}><NoDataFound /></TopAlbums>)}
         />
-        
+        <Route path="/favorites"
+          render={() => (<Favorites isLoading={isLoading}><NoDataFound /></Favorites>)}
+        />
       </Switch>
-      {/* <Albums /> */}
     </div>
 
   )

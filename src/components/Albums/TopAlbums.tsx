@@ -1,31 +1,29 @@
-import { ReactElement } from 'react';
-import { connect } from 'react-redux'
-import { Album, State } from '../../types/reducers'
-import Albums from './Albums'
+import { PropsWithChildren } from 'react';
+import { connect } from 'react-redux';
+import { Album, State } from '../../types/reducers';
+import Albums from './Albums';
 
-type Props = {
-    albums: Album[],
+type TopAlbumsProps = PropsWithChildren & {
+  albums: Album[],
   categories: string[],
-  children:ReactElement,
-  isLoading:boolean,
+  isLoading: boolean,
 }
 
-function TopAlbums(props: Props) {
-    
+function TopAlbums(props: TopAlbumsProps) {
+
   return (
-   <Albums title='Top Albums' {...props}/>
-  )
-}
-
+    <>
+      <Albums title='Top Albums' {...props} />
+    </>
+  );
+};
 
 const mapStateToProps = (state: State) => {
+  return {
+    ...state,
+    albums: state.albums,
+    categories: state.categories,
+  };
+};
 
-    return {
-      ...state,
-      albums: state.albums,
-      categories: state.categories,
-    }
-  }
-
-
-export default connect(mapStateToProps, null)(TopAlbums)
+export default connect(mapStateToProps, null)(TopAlbums);
