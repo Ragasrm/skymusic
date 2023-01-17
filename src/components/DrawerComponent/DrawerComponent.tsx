@@ -32,7 +32,7 @@ export default function DrawerComponent(props: Props) {
           </ListItem>
           <ListItem onClick={() => setIsMobile(!openDrawer)}>
             <ListItemText>
-            <NavLink to="/about" className='mb-link' activeClassName='mb-active' >
+            <NavLink to="/favorites" className='mb-link' activeClassName='mb-active' >
               your Favorites
             </NavLink>
             </ListItemText>
