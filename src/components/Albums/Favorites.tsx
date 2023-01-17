@@ -11,6 +11,8 @@ type Props = PropsWithChildren &{
 
 function Favorites(props: Props) {
 
+  
+
   return (
     <Albums title='Your Favorites' {...props}/>
 

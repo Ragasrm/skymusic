@@ -37,8 +37,10 @@ export default function Albums(props: Props) {
     let filteredAlbums = albums.filter((album)=>categories.includes(album.category))
     if(filteredAlbums.length > 0) {
       setAlbumData(filteredAlbums);
-    } else {
+    } else if (categories.length === 0) {
       setAlbumData(albums);
+    } else if (filteredAlbums.length === 0 ){
+      setAlbumData([]);
     }
   }
   

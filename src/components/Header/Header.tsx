@@ -39,7 +39,7 @@ function Header(props: Props) {
             <NavLink exact to="/" className='link' activeClassName='active' >
               Top Albums
             </NavLink>
-            <NavLink to="/about" className='link' activeClassName='active' >
+            <NavLink to="/favorites" className='link' activeClassName='active' >
               your Favorites
             </NavLink>
           </Box>

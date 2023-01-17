@@ -66,9 +66,8 @@ function Content(props: Props) {
 
       
         <Route exact path="/" 
-        // component={TopAlbums} 
         render={()=>(<TopAlbums isLoading={isLoading}><NoDataFound/></TopAlbums>)} />
-        <Route path="/about"
+        <Route path="/favorites"
         render={()=>(<Favorites isLoading={isLoading}><NoDataFound/></Favorites>)}
         
         />
