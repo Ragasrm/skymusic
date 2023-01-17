@@ -2,10 +2,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
 // import { useDispatch } from 'react-redux';
 import { Provider } from 'react-redux';
 import { createStore, Store } from 'redux';
-import AlbumCard from '../components/Albums/AlbumCard/AlbumCard'
-import rootReducer from '../redux/reducers';
-import { Action, ActionType, Album, State } from '../types/reducers';
+import { Action, ActionType, Album, State } from '../../../types/reducers';
 import * as reactRedux from 'react-redux'
+import rootReducer from '../../../redux/reducers';
+import AlbumCard from '../../../components/Albums/AlbumCard/AlbumCard';
 
 describe('testing card section', () => {
     const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch')

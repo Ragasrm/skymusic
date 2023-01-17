@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore, Store } from 'redux';
-import AlbumCard from '../components/Albums/AlbumCard/AlbumCard';
-import rootReducer from '../redux/reducers';
-import { Action, ActionType, Album, State } from '../types/reducers';
+import AlbumCard from '../../../components/Albums/AlbumCard/AlbumCard';
+import rootReducer from '../../../redux/reducers';
+import { Action, ActionType, Album, State } from '../../../types/reducers';
 
 
 describe('nothing', () => {
