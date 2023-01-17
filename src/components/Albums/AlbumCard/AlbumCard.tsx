@@ -37,7 +37,7 @@ export default function AlbumCard(props: Props) {
             </div>
             <div className='album-detail-section'>
                 <div className='album-aritist'>
-                    <p className='album-name'><span data-testid="album-name" title={name} style={{width:200, overflow:'hidden', whiteSpace:'nowrap',  textOverflow:'ellipsis'}}>{name}</span> 
+                    <p className='album-name'><span data-testid="album-name" title={name} className="title">{name}</span> 
                     <Favorite className='fav-icon' data-testid="fav-icon"
                      onClick={()=>handleSetFavorite()}
                      />
